@@ -1,5 +1,5 @@
 require('dotenv').config()
 
 export default {
-  url: `http://${process.env.APP_URL}`,
+  url: `http://${process.env.APP_URL}:81`,
 }

@@ -1,5 +1,5 @@
 "use strict";Object.defineProperty(exports, "__esModule", {value: true});require('dotenv').config()
 
 exports. default = {
-  url: `http://${process.env.APP_URL}`,
+  url: `http://${process.env.APP_URL}:81`,
 }
