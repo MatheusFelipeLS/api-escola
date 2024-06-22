@@ -31,7 +31,7 @@ class TokenController {
       expiresIn: '7d',
     });
 
-    return res.json({ token });
+    return res.json({ token, user: { nome: user.nome, id, email } });
   }
 }
 

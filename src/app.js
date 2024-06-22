@@ -1,12 +1,32 @@
 import dotenv from 'dotenv';
+
 import './database';
+
 import express from 'express';
-import { resolve } from 'path'
+import cors from 'cors';
+import helmet from 'helmet';
+import { resolve } from 'path';
+
 import homeRoutes from './routes/homeRoutes';
 import userRoutes from './routes/userRoutes';
 import tokenRoutes from './routes/tokenRoutes';
 import alunosRoutes from './routes/alunosRoutes';
 import fotoRoutes from './routes/fotoRoutes';
+
+const allowedList = [
+  'http://192.168.0.123:82',
+  'http://localhost:3000'
+];
+
+const corsOptions = {
+  origin: function (origin, callback) {
+    if(allowedList.indexOf(origin) !== -1 || !origin) {
+      callback(null, true)
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  }
+};
 
 dotenv.config();
 
@@ -18,6 +38,8 @@ class App {
   }
 
   middlewares() {
+    this.app.use(cors(corsOptions));
+    this.app.use(helmet());
     this.app.use(express.urlencoded({ extended: true} ));
     this.app.use(express.json());
     this.app.use('/images/', express.static(resolve(__dirname, '..', 'uploads', 'images')));
