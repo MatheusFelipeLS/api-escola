@@ -15,7 +15,7 @@ import alunosRoutes from './routes/alunosRoutes';
 import fotoRoutes from './routes/fotoRoutes';
 
 const allowedList = [
-  'http://192.168.0.112:82',
+  'http://192.168.0.118:82',
   'http://localhost:3000'
 ];
 

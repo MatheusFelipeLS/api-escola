@@ -15,7 +15,7 @@ var _alunosRoutes = require('./routes/alunosRoutes'); var _alunosRoutes2 = _inte
 var _fotoRoutes = require('./routes/fotoRoutes'); var _fotoRoutes2 = _interopRequireDefault(_fotoRoutes);
 
 const allowedList = [
-  'http://192.168.0.112:82',
+  'http://192.168.0.118:82',
   'http://localhost:3000'
 ];
 
