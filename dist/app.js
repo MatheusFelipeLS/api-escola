@@ -14,7 +14,7 @@ var _alunosRoutes = require('./routes/alunosRoutes'); var _alunosRoutes2 = _inte
 var _fotoRoutes = require('./routes/fotoRoutes'); var _fotoRoutes2 = _interopRequireDefault(_fotoRoutes);
 
 const allowedList = [
-  'http://192.168.0.123:82',
+  'http://192.168.0.112:82',
   'http://localhost:3000'
 ];
 
@@ -39,7 +39,9 @@ class App {
 
   middlewares() {
     this.app.use(_cors2.default.call(void 0, corsOptions));
-    this.app.use(_helmet2.default.call(void 0, ));
+    this.app.use(_helmet2.default.call(void 0, {
+      crossOriginEmbedderPolicy: false,
+    }));
     this.app.use(_express2.default.urlencoded({ extended: true} ));
     this.app.use(_express2.default.json());
     this.app.use('/images/', _express2.default.static(_path.resolve.call(void 0, __dirname, '..', 'uploads', 'images')));
