@@ -6,6 +6,7 @@ import express from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
 import { resolve } from 'path';
+import delay from 'express-delay';
 
 import homeRoutes from './routes/homeRoutes';
 import userRoutes from './routes/userRoutes';
@@ -42,6 +43,7 @@ class App {
     this.app.use(helmet({
       crossOriginEmbedderPolicy: false,
     }));
+    this.app.use(delay(2000));
     this.app.use(express.urlencoded({ extended: true} ));
     this.app.use(express.json());
     this.app.use('/images/', express.static(resolve(__dirname, '..', 'uploads', 'images')));
