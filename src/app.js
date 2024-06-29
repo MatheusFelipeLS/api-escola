@@ -43,7 +43,7 @@ class App {
     this.app.use(helmet({
       crossOriginEmbedderPolicy: false,
     }));
-    this.app.use(delay(2000));
+    this.app.use(delay(500));
     this.app.use(express.urlencoded({ extended: true} ));
     this.app.use(express.json());
     this.app.use('/images/', express.static(resolve(__dirname, '..', 'uploads', 'images')));
